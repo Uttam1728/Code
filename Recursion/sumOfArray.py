@@ -18,9 +18,9 @@ def sumOfArrayIterative(nums, l):
     #     ans += i
     return ans
     
-def sumOfArrayIterativeRecursive(nums, l):
+def sumOfArrayRecursive(nums, l):
     if not l : return 0
-    return nums[l-1] + sumOfArrayIterativeRecursive(nums, l-1)
+    return nums[l-1] + sumOfArrayRecursive(nums, l-1)
     ### If Length is not there
     # if not nums : return 0
     # return nums[0] + sumOfArrayIterativeRecursive(nums[1:]) 
@@ -30,7 +30,7 @@ def sumOfArrayIterativeRecursive(nums, l):
 v1 = sumOfArrayIterative([100,1,43,7,45,98,13,78])
 print(v1)
  
-v2 = sumOfArrayIterativeRecursive([100,1,43,7,45,98,13,78])
+v2 = sumOfArrayRecursive([100,1,43,7,45,98,13,78])
 print(v2)
 
 # LeetCode PlayGround Or Question Link
