@@ -29,6 +29,25 @@ class Solution:
             else:
                 cache[key] =  max(helperMemFull(l, h-1), helperMemFull(l+1, h), key = len)
             return cache[key]
+
+	def longestPalindromeSubseqByLCS(self, s: str) -> int:
+        
+		def LCS(X,Y):
+		    lx, ly = len(X), len(Y)
+		    dp = [ [0]*(ly+1) for i in range(lx+1)]
+
+		    for i in range(1,lx+1):
+			for j in range(1, ly+1):
+
+			    if X[i-1] == Y[j-1]:
+				dp[i][j] = 1 + dp[i-1][j-1]
+			    else:
+				dp[i][j] = max(dp[i][j-1], dp[i-1][j])
+
+            return dp[-1][-1]
+        
+        
+        return LCS(s,s[::-1]
 	    
 
 #             if len(s) < 2 : return s 
