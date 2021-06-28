@@ -25,16 +25,15 @@ def DiffUtility(X,Y):
 
 
 	def helper(i,j,curr):
-		
-		if i <= 0 or j <= 0 :
+		if i <= 0 and j <= 0:
 			return curr
 		
-		if X[i-1] == Y[j-1]:
+		if i > 0 and j > 0 and X[i-1] == Y[j-1]:
 			return helper(i-1,j-1," " +X[i-1]+curr)
 			
-		if dp[i][j-1] >= dp[i-1][j]:
+		if j > 0 and (i == 0 or dp[i][j-1] >= dp[i-1][j]):
 			return helper(i,j-1," +"+Y[j-1]+curr)
-		else:
+		elif i > 0 and(j == 0 or dp[i-1][j] >= dp[i][j-1]):
 			return helper(i-1,j," -"+X[i-1]+curr)
 		
 
